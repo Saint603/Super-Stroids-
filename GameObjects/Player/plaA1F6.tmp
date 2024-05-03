@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgyga3ktjg2tg"]
+
+[ext_resource type="Script" path="res://GameObjects/Player/player.gd" id="1_21g2g"]
+[ext_resource type="SpriteFrames" uid="uid://cjwyrycvige16" path="res://Sprites/Ships/ship2.aseprite" id="2_o3tim"]
+[ext_resource type="Script" path="res://GameObjects/Player/Weapon.gd" id="3_4c73a"]
+[ext_resource type="Texture2D" uid="uid://op3dkbjygsak" path="res://Sprites/icon.svg" id="3_be4mi"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_21g2g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = ExtResource("2_o3tim")
+autoplay = "default"
+frame = 1
+frame_progress = 0.769835
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(-100, 119, -4, -127, 4, -127, 100, 117, 100, 128, 94, 128, 78, 85, -77, 85, -93, 127, -100, 127)
+
+[node name="Weapon" type="Node2D" parent="."]
+script = ExtResource("3_4c73a")
+
+[node name="Sprite2D" type="Sprite2D" parent="Weapon"]
+position = Vector2(1, -100)
+scale = Vector2(0.0898438, 0.449219)
+texture = ExtResource("3_be4mi")
+
+[node name="Muzzle" type="Marker2D" parent="Weapon"]
+unique_name_in_owner = true
+position = Vector2(0, -143)

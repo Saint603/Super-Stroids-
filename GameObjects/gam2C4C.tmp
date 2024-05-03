@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://kgbokws8v0d8"]
+
+[ext_resource type="Script" path="res://GameObjects/game.gd" id="1_jrt1d"]
+[ext_resource type="PackedScene" uid="uid://cuc22sulxoqy1" path="res://Inventory/UI/inventory_ui.tscn" id="4_7l37j"]
+[ext_resource type="PackedScene" uid="uid://08ux0ao0uyr8" path="res://GameObjects/PlayerUI/player_ui.tscn" id="5_kt6im"]
+[ext_resource type="PackedScene" uid="uid://bw1iajjoipio1" path="res://GameObjects/Cutscenes/intro_scene.tscn" id="6_g2w77"]
+[ext_resource type="AudioStream" uid="uid://d4f7h82aglwsi" path="res://Audio/Music/Opening Music.wav" id="6_lkik6"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_jrt1d")
+
+[node name="GameLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Intro Scene" parent="GameLayer" instance=ExtResource("6_g2w77")]
+
+[node name="Temp Instances" type="CanvasLayer" parent="GameLayer"]
+unique_name_in_owner = true
+layer = 0
+
+[node name="Menu Layer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="PlayerUI" parent="UI Layer" instance=ExtResource("5_kt6im")]
+
+[node name="Inventory UI" parent="UI Layer" instance=ExtResource("4_7l37j")]
+visible = false
+scale = Vector2(5, 5)
+
+[node name="Level Transition Delay" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.114
+
+[node name="Game Time" type="Timer" parent="."]
+unique_name_in_owner = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_lkik6")
+
+[connection signal="timeout" from="Level Transition Delay" to="." method="_on_level_transition_delay_timeout"]
+[connection signal="timeout" from="Game Time" to="." method="_on_game_time_timeout"]

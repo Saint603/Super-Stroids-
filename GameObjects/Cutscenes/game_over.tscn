@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0kyvwya00143"]
+
+[ext_resource type="Script" path="res://GameObjects/Cutscenes/game_over.gd" id="1_f23nn"]
+
+[node name="Game Over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f23nn")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -68.5
+offset_right = 287.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
+
+[node name="Try Again?" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.477083
+anchor_top = 0.611574
+anchor_right = 0.522917
+anchor_bottom = 0.640278
+offset_left = 40.0
+offset_top = 11.5
+offset_right = -40.0
+offset_bottom = -11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Try Again?"
+metadata/_edit_use_anchors_ = true
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.488542
+anchor_top = 0.643519
+anchor_right = 0.510417
+anchor_bottom = 0.672222
+offset_right = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Try Again?" to="." method="_on_try_again_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

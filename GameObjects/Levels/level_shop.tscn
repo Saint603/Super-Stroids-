@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cqjg353q0lrvo"]
+
+[ext_resource type="PackedScene" uid="uid://brc4stqm0khhq" path="res://Sprites/Place Holder/Notebook1.glb" id="1_w7pfk"]
+[ext_resource type="Script" path="res://GameObjects/Levels/Level Scripts/level_shop.gd" id="1_xlcjc"]
+[ext_resource type="PackedScene" uid="uid://c8h5h6i8o7sy0" path="res://Sprites/Place Holder/Mouse1.glb" id="2_p215l"]
+[ext_resource type="PackedScene" uid="uid://cuce32clavkuo" path="res://Sprites/Place Holder/ExecutiveChair1.glb" id="3_64xl5"]
+[ext_resource type="PackedScene" uid="uid://d2i1lir6m3lci" path="res://Sprites/Place Holder/DrumSet1.glb" id="4_wvyc3"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gxel5"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Shop" type="Node2D"]
+script = ExtResource("1_xlcjc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(939, 546)
+texture = SubResource("ViewportTexture_gxel5")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+
+[node name="Shop Interior" type="Node3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.16778, 0, 0)
+
+[node name="DrumSet12" parent="SubViewport/Shop Interior" instance=ExtResource("4_wvyc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.13429, 0.331666, 0.0600118)
+
+[node name="ExecutiveChair12" parent="SubViewport/Shop Interior" instance=ExtResource("3_64xl5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.81648, 0, -1.79993)
+
+[node name="Mouse12" parent="SubViewport/Shop Interior" instance=ExtResource("2_p215l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.00592, 0.472854, -1.12645)
+
+[node name="Notebook1" parent="SubViewport/Shop Interior" instance=ExtResource("1_w7pfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.26953, 0, -2.27334)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/Shop Interior"]
+transform = Transform3D(1, 0, 0, 0, 0.808945, 0.587884, 0, -0.587884, 0.808945, -5.13055, 1.72188, 2.3)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport/Shop Interior"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.01635, 1.63474, 1.34643)

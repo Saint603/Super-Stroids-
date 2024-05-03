@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bion14y8fq7k2"
+path="res://.godot/imported/Asteroid_Sound_5.wav-c0791ca81b2d707a00e03d9aa3047335.sample"
+
+[deps]
+
+source_file="res://Audio/Sounds/Asteroid Sounds/Asteroid_Sound_5.wav"
+dest_files=["res://.godot/imported/Asteroid_Sound_5.wav-c0791ca81b2d707a00e03d9aa3047335.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

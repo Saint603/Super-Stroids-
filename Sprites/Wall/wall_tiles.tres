@@ -1,0 +1,26 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cvttor2nm05us"]
+
+[ext_resource type="Texture2D" uid="uid://bepdktmsvpwft" path="res://Sprites/Wall/Wall.png" id="1_dd3br"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7p14j"]
+texture = ExtResource("1_dd3br")
+0:0/size_in_atlas = Vector2i(32, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255.921, -63.941, 256.236, -63.941, 256.236, 64.256, -256.236, 63.626)
+32:0/size_in_atlas = Vector2i(32, 8)
+32:0/0 = 0
+32:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+32:0/0/physics_layer_0/angular_velocity = 0.0
+32:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255.921, -63.941, 256.236, -63.941, 256.236, 64.256, -256.236, 63.626)
+0:8/size_in_atlas = Vector2i(32, 8)
+0:8/0 = 0
+0:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:8/0/physics_layer_0/angular_velocity = 0.0
+0:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-255.921, -63.941, 256.236, -63.941, 256.236, 64.256, -256.236, 63.626)
+
+[resource]
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
+sources/0 = SubResource("TileSetAtlasSource_7p14j")

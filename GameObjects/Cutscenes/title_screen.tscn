@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0bbhkavicx12"]
+
+[ext_resource type="Texture2D" uid="uid://cp7j0oe8emyho" path="res://Sprites/General/Intro/super stroids.png" id="1_nyjtc"]
+[ext_resource type="Script" path="res://GameObjects/Cutscenes/title_screen.gd" id="1_vi6oj"]
+[ext_resource type="PackedScene" uid="uid://tag2pom475xc" path="res://GameObjects/Menu/main_menu.tscn" id="2_g83rw"]
+
+[node name="Title Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vi6oj")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SuperStroids" type="Sprite2D" parent="."]
+position = Vector2(963, 545)
+texture = ExtResource("1_nyjtc")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_g83rw")]
+layout_mode = 1
+anchor_left = -0.0677083
+anchor_top = -0.139815
+anchor_right = 0.0817708
+anchor_bottom = 0.237037
+offset_left = 1345.0
+offset_top = 458.0
+offset_right = 1345.0
+offset_bottom = 458.0
+
+[connection signal="play_pressed" from="MainMenu" to="." method="_on_main_menu_play_pressed"]

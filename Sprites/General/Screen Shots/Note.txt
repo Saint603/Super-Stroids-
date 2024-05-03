@@ -1,0 +1,1 @@
+Screenshot script located in gameobjects utilities scripts folder

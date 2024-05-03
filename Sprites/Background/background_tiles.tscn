@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs0ptjbaajmt1"]
+
+[ext_resource type="Texture2D" uid="uid://btc2cemhaffbr" path="res://Sprites/Background/Background_1.png" id="1_wkdsp"]
+[ext_resource type="Texture2D" uid="uid://camuw3jwprv2n" path="res://Sprites/Background/Background_Sun.png" id="2_l2nwl"]
+[ext_resource type="Texture2D" uid="uid://ditwuavo1nv7l" path="res://Sprites/Background/Tilemaptest.png" id="3_hcpfp"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_xiw5y"]
+tile_data = PackedInt32Array(0, 458753, 0, 65536, 458753, 1, 131072, 458753, 2, 196608, 458753, 3, 196609, 262145, 0, 65538, 1, 0, 196610, 327681, 0, 3, 393217, 3, 196611, 393217, 0, 4, 458753, 3, 65540, 262145, 1, 131076, 262145, 1, 196612, 262145, 2, 5, 393217, 3, 65541, 327681, 1, 131077, 327681, 1, 196613, 327681, 2, 6, 458753, 3, 65542, 393217, 1, 131078, 393217, 1, 196614, 393217, 2, 7, 65537, 3, 65543, 458753, 1, 131079, 458753, 1, 196615, 458753, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t7b50"]
+texture = ExtResource("1_wkdsp")
+4:1/0 = 0
+0:0/size_in_atlas = Vector2i(4, 3)
+0:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+6:3/0 = 0
+5:3/0 = 0
+4:3/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xv15k"]
+texture = ExtResource("2_l2nwl")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p1no3"]
+resource_name = "Background"
+texture = ExtResource("3_hcpfp")
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+0:0/0/probability = 0.5
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+4:0/0/probability = 0.5
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+8:0/0/probability = 0.5
+12:0/size_in_atlas = Vector2i(4, 4)
+12:0/0 = 0
+12:0/0/probability = 0.5
+0:4/size_in_atlas = Vector2i(4, 4)
+0:4/0 = 0
+0:4/0/probability = 0.5
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+4:4/0/probability = 0.5
+8:4/size_in_atlas = Vector2i(4, 4)
+8:4/0 = 0
+8:4/0/probability = 0.25
+12:4/size_in_atlas = Vector2i(4, 4)
+12:4/0 = 0
+12:4/0/probability = 0.25
+0:8/size_in_atlas = Vector2i(4, 4)
+0:8/0 = 0
+0:8/0/probability = 0.25
+4:8/size_in_atlas = Vector2i(4, 4)
+4:8/0 = 0
+4:8/0/probability = 0.01
+8:8/size_in_atlas = Vector2i(4, 4)
+8:8/0 = 0
+12:8/size_in_atlas = Vector2i(4, 4)
+12:8/0 = 0
+0:12/size_in_atlas = Vector2i(4, 4)
+0:12/0 = 0
+4:12/size_in_atlas = Vector2i(4, 4)
+4:12/0 = 0
+4:12/0/probability = 0.25
+8:12/size_in_atlas = Vector2i(4, 4)
+8:12/0 = 0
+8:12/0/probability = 0.25
+12:12/size_in_atlas = Vector2i(4, 4)
+12:12/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_apv6k"]
+sources/1 = SubResource("TileSetAtlasSource_t7b50")
+sources/2 = SubResource("TileSetAtlasSource_xv15k")
+sources/3 = SubResource("TileSetAtlasSource_p1no3")
+pattern_0 = SubResource("TileMapPattern_xiw5y")
+
+[node name="Background Tiles" type="TileMap"]
+texture_filter = 1
+tile_set = SubResource("TileSet_apv6k")
+format = 2
+layer_0/name = "Background"
+layer_0/tile_data = PackedInt32Array(-262151, 524291, 0, -5, 3, 4, 327679, 786435, 0, 131063, 3, 4, -655366, 262147, 12, -720893, 524291, 0, -655345, 786435, 12, 589819, 524291, 8, 655359, 786435, 8, 589826, 524291, 8, 589831, 524291, 8, -65522, 524291, 8, -262132, 524291, 8, -262134, 786435, 8, -262144, 786435, 8, -196609, 786435, 8, -131075, 786435, 8, 131066, 524291, 8, 655351, 524291, 8, 655352, 786435, 8, 131073, 524291, 8, 65537, 786435, 8, 65541, 524291, 8, -393208, 524291, 8, -655357, 786435, 8, -458763, 786435, 8, -327692, 786435, 8, -131084, 524291, 8, -12, 524291, 8, 327670, 524291, 8, 524293, 524291, 8, 65550, 524291, 8, -131065, 524291, 8, -262140, 786435, 8, -393218, 786435, 8, -458754, 524291, 8, -196616, 524291, 8, 196599, 524291, 8, 524285, 524291, 8, 262153, 524291, 8, -196593, 786435, 8, -393201, 786435, 8, -589810, 524291, 8, -786420, 786435, 8, -851957, 786435, 8, -589826, 786435, 8, -524293, 524291, 8, -524294, 524291, 8, -524277, 786435, 8, 393215, 262147, 0, 589835, 262147, 0, -720891, 262147, 0, -393204, 262147, 0)
+layer_1/name = "Planets"
+layer_1/tile_data = PackedInt32Array()

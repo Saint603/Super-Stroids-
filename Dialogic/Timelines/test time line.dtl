@@ -1,0 +1,4 @@
+join player 1 [animation="Slide In Up" length="1" wait="true"]
+player (Default): Welcome to my game! It's far from done, but the music slaps.
+set {intro_dialog} = true
+[end_timeline]

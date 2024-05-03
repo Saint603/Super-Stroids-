@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://0nr81ti5dqmv"]
+
+[ext_resource type="Script" path="res://GameObjects/Props/Shop/shop_exterior.gd" id="1_xqeum"]
+[ext_resource type="Texture2D" uid="uid://bou1pfclpynrx" path="res://Sprites/Props/shop outside.png" id="2_8uv8p"]
+[ext_resource type="PackedScene" uid="uid://cnvbjdtnnkatd" path="res://GameObjects/Utilities/Interactable/Interactable Area/interactable_area.tscn" id="3_bip3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ndnvt"]
+size = Vector2(385, 427)
+
+[node name="Shop Exterior" type="Node2D"]
+script = ExtResource("1_xqeum")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(256, 256)
+texture = ExtResource("2_8uv8p")
+
+[node name="InteractableArea" parent="." instance=ExtResource("3_bip3t")]
+unique_name_in_owner = true
+action_name = "shop!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+position = Vector2(210.5, 308.5)
+shape = SubResource("RectangleShape2D_ndnvt")

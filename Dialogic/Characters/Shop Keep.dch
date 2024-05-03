@@ -1,0 +1,29 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {},
+"style": ""
+},
+"default_portrait": "icon",
+"description": "An open source merchant",
+"display_name": "Gobot",
+"mirror": false,
+"nicknames": ["Shop Keep"],
+"offset": Vector2(0, 0),
+"portraits": {
+"icon": {
+"export_overrides": {
+"image": "\"res://Sprites/General/icon.svg\""
+},
+"mirror": false,
+"offset": Vector2(0, -25),
+"scale": 0.1,
+"scene": ""
+}
+},
+"scale": 1.0
+}

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://bfwid0yi6tufe"
+path="res://.godot/imported/super stroids.aseprite-5541888e75f84af9f850dc81a98e4e3b.res"
+
+[deps]
+
+source_file="res://Sprites/General/Intro/super stroids.aseprite"
+dest_files=["res://.godot/imported/super stroids.aseprite-5541888e75f84af9f850dc81a98e4e3b.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

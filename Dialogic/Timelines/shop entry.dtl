@@ -1,0 +1,9 @@
+join "Shop Keep" 1 [animation="Fade In Up" wait="true"]
+"Shop Keep" (icon): Welcome to my shop!
+label Question
+- Leave
+- Stay
+	"Shop Keep": Ok, but I don't have anything right now, sorry! Nate is busy!
+	jump Question
+do global.dialogic_update_current_level(0.0, 0.0)
+[end_timeline]

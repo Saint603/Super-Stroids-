@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://l6j55huq6mnn"]
+
+[node name="Wall" type="Node2D"]

@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbtidn0upo5vb"]
+
+[ext_resource type="Script" path="res://GameObjects/Levels/Level Scripts/level_base.gd" id="1_nm5nv"]
+[ext_resource type="PackedScene" uid="uid://cs0ptjbaajmt1" path="res://Sprites/Background/background_tiles.tscn" id="2_dp1tq"]
+[ext_resource type="PackedScene" uid="uid://d4eoc3hll1qhb" path="res://GameObjects/Asteroids/asteroid_spawner.tscn" id="3_n8dvm"]
+[ext_resource type="PackedScene" uid="uid://ce4lexnr4q11p" path="res://GameObjects/Asteroids/asteroid.tscn" id="4_675n1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lnpyn"]
+size = Vector2(572.156, 1308.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_auby0"]
+size = Vector2(3236, 435.5)
+
+[node name="Level_Base" type="Node2D"]
+script = ExtResource("1_nm5nv")
+
+[node name="Scripts" type="Node" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+top_level = true
+z_index = -1
+energy = 0.98
+blend_mode = 1
+
+[node name="Background Stuff" type="CanvasGroup" parent="."]
+
+[node name="Black Backdrop" type="ColorRect" parent="Background Stuff"]
+z_index = -2
+offset_left = -631.0
+offset_top = -249.0
+offset_right = 2214.0
+offset_bottom = 1244.0
+color = Color(0, 0, 0, 1)
+
+[node name="Background Tiles" parent="Background Stuff" instance=ExtResource("2_dp1tq")]
+z_index = -1
+z_as_relative = false
+position = Vector2(930, 611)
+layer_0/tile_data = PackedInt32Array()
+
+[node name="Level Decorations" type="CanvasGroup" parent="."]
+
+[node name="Asteroid Spawner" parent="." instance=ExtResource("3_n8dvm")]
+asteroid = ExtResource("4_675n1")
+
+[node name="Borders" type="Node" parent="."]
+
+[node name="EastBorder" type="Area2D" parent="Borders"]
+position = Vector2(1164, 1)
+collision_layer = 0
+collision_mask = 2
+
+[node name="East" type="CollisionShape2D" parent="Borders/EastBorder"]
+position = Vector2(1161, 479)
+shape = SubResource("RectangleShape2D_lnpyn")
+
+[node name="WestBorder" type="Area2D" parent="Borders"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="West" type="CollisionShape2D" parent="Borders/WestBorder"]
+position = Vector2(-453, 490)
+shape = SubResource("RectangleShape2D_lnpyn")
+
+[node name="SouthBorder" type="Area2D" parent="Borders"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="South" type="CollisionShape2D" parent="Borders/SouthBorder"]
+position = Vector2(953, 1357)
+shape = SubResource("RectangleShape2D_auby0")
+
+[node name="NorthBorder" type="Area2D" parent="Borders"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="North" type="CollisionShape2D" parent="Borders/NorthBorder"]
+position = Vector2(971, -392)
+shape = SubResource("RectangleShape2D_auby0")
+
+[node name="Level Name" type="Label" parent="."]
+offset_left = 28.0
+offset_top = 19.0
+offset_right = 68.0
+offset_bottom = 42.0
+
+[connection signal="body_entered" from="Borders/EastBorder" to="." method="_on_east_border_body_entered"]
+[connection signal="body_entered" from="Borders/WestBorder" to="." method="_on_west_border_body_entered"]
+[connection signal="body_entered" from="Borders/SouthBorder" to="." method="_on_south_border_body_entered"]
+[connection signal="body_entered" from="Borders/NorthBorder" to="." method="_on_north_border_body_entered"]

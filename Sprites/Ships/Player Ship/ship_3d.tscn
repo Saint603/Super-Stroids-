@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwtofwpclirng"]
+
+[ext_resource type="PackedScene" uid="uid://crhv06obuo42k" path="res://Sprites/Ships/Player Ship/ship.obj" id="1_sud0c"]
+[ext_resource type="Texture2D" uid="uid://dywkhj1375rrq" path="res://Sprites/Ships/Player Ship/ship_tex.png" id="2_pnl2b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hif8j"]
+albedo_texture = ExtResource("2_pnl2b")
+
+[node name="ship" instance=ExtResource("1_sud0c")]
+
+[node name="ship" parent="." index="0"]
+transform = Transform3D(-0.871608, 0.490204, 0, -0.490204, -0.871608, 0, 0, 0, 1, 0, -1.1442, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_hif8j")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw1iajjoipio1"]
+
+[ext_resource type="Script" path="res://GameObjects/Cutscenes/Intro Scene.gd" id="1_317ff"]
+[ext_resource type="Texture2D" uid="uid://vouaid4acmop" path="res://Sprites/General/Intro/beloca.png" id="2_qphql"]
+[ext_resource type="Texture2D" uid="uid://do6cokcvpymae" path="res://Sprites/General/Intro/games.png" id="3_1ynxo"]
+
+[node name="Intro Scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_317ff")
+
+[node name="Backdrop" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1922.0
+offset_bottom = 1076.0
+color = Color(0, 0, 0, 1)
+
+[node name="Beloca" type="Sprite2D" parent="."]
+position = Vector2(879, 403)
+texture = ExtResource("2_qphql")
+
+[node name="Games" type="Sprite2D" parent="."]
+position = Vector2(952, 884)
+texture = ExtResource("3_1ynxo")
+
+[node name="Fade" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1917.0
+offset_bottom = 1078.0
+color = Color(0, 0, 0, 1)
+
+[node name="Wait time" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 1.5
+one_shot = true
+
+[connection signal="timeout" from="Wait time" to="." method="_on_wait_time_timeout"]

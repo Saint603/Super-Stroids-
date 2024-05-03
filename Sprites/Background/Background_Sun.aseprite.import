@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://c68oerow06lqx"
+path="res://.godot/imported/Background_Sun.aseprite-d0c844902434b0771b4d34c9cd056b3c.res"
+
+[deps]
+
+source_file="res://Sprites/Background/Background_Sun.aseprite"
+dest_files=["res://.godot/imported/Background_Sun.aseprite-d0c844902434b0771b4d34c9cd056b3c.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

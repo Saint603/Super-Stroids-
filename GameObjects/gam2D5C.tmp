@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://kgbokws8v0d8"]
+
+[ext_resource type="PackedScene" uid="uid://c4ogx2nnj2m06" path="res://GameObjects/Levels/level_1_1.tscn" id="1_8nin1"]
+[ext_resource type="Script" path="res://GameObjects/game.gd" id="1_owwc5"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_owwc5")
+
+[node name="Bullets" type="Node" parent="."]
+
+[node name="Levels" type="Node" parent="."]
+
+[node name="Start Level" parent="Levels" instance=ExtResource("1_8nin1")]
+
+[connection signal="player_leaving" from="Levels/Start Level" to="." method="_on_start_level_player_leaving"]

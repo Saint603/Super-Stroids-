@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce4lexnr4q11p"]
+
+[ext_resource type="Script" path="res://GameObjects/Asteroids/asteroid.gd" id="1_8mih6"]
+[ext_resource type="Texture2D" uid="uid://cpi421r4dyurx" path="res://Sprites/Asteroids/Asteroid_Mid.png" id="1_k5nvq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3r0e"]
+radius = 43.0465
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grqco"]
+radius = 37.0135
+
+[node name="Asteroid" type="RigidBody2D"]
+collision_mask = 2
+gravity_scale = 0.005
+script = ExtResource("1_8mih6")
+health = 10.0
+splits = 3
+damage = 5.0
+
+[node name="Area2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_mask = 2
+
+[node name="Hurt Box" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l3r0e")
+
+[node name="Hit Box" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+shape = SubResource("CircleShape2D_grqco")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_k5nvq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

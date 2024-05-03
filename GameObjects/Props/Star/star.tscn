@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxagqsetq0o6v"]
+
+[ext_resource type="Script" path="res://GameObjects/Props/Star/star.gd" id="1_hr0iy"]
+[ext_resource type="Texture2D" uid="uid://bshmt8r442v0e" path="res://Sprites/General/2d_lights_and_shadows_neutral_point_light.webp" id="1_n5j1s"]
+[ext_resource type="Texture2D" uid="uid://cg8n734rhiicw" path="res://Sprites/Props/Star.png" id="2_cjo3k"]
+
+[node name="Star" type="Node2D"]
+script = ExtResource("1_hr0iy")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("1_n5j1s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+texture = ExtResource("2_cjo3k")
