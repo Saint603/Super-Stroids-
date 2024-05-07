@@ -1,19 +1,30 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgyga3ktjg2tg"]
+[gd_scene load_steps=9 format=3 uid="uid://cgyga3ktjg2tg"]
 
 [ext_resource type="Script" path="res://GameObjects/Player/player.gd" id="1_21g2g"]
 [ext_resource type="Resource" uid="uid://di8s5gebe0km3" path="res://Inventory/player_inventory.tres" id="2_c4klh"]
 [ext_resource type="PackedScene" uid="uid://b16c4opr0fv8j" path="res://GameObjects/Player/weapon.tscn" id="3_y4e1s"]
 [ext_resource type="PackedScene" uid="uid://dwtofwpclirng" path="res://Sprites/Ships/Player Ship/ship_3d.tscn" id="4_1b6aj"]
 [ext_resource type="Texture2D" uid="uid://bshmt8r442v0e" path="res://Sprites/General/2d_lights_and_shadows_neutral_point_light.webp" id="5_i3dc8"]
+[ext_resource type="Texture2D" uid="uid://rqon4b7awesc" path="res://Sprites/Shield/shield.png" id="6_g24jh"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kjtl1"]
 viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7g8cj"]
+radius = 75.0
+height = 310.0
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(837, 557)
 scale = Vector2(0.2, 0.2)
 collision_layer = 2
 script = ExtResource("1_21g2g")
+shield = {
+"acquired": true,
+"cooldown": 2.0,
+"current": 4,
+"max": 4
+}
 inv = ExtResource("2_c4klh")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -27,22 +38,28 @@ texture_scale = 8.93
 unique_name_in_owner = true
 texture = SubResource("ViewportTexture_kjtl1")
 
+[node name="Shield Collision" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, 15)
+shape = SubResource("CapsuleShape2D_7g8cj")
+
 [node name="Collision" type="CollisionPolygon2D" parent="."]
 visible = false
 position = Vector2(8, 27)
 scale = Vector2(0.990625, 0.917892)
 polygon = PackedVector2Array(-8.07571, -118.75, 63.5962, 61.0094, -78.7382, 59.9199)
 
-[node name="Hurt Box Area" type="Area2D" parent="."]
-visible = false
-collision_layer = 2
-
-[node name="Hurt Box" type="CollisionPolygon2D" parent="Hurt Box Area"]
-position = Vector2(8, 27)
-scale = Vector2(0.990625, 0.917892)
-polygon = PackedVector2Array(-8.07571, -124.198, 67.6341, 63.1883, -84.795, 63.1883)
-
 [node name="Weapon" parent="." instance=ExtResource("3_y4e1s")]
+unique_name_in_owner = true
+
+[node name="Shield Sprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.266667)
+position = Vector2(0, 10)
+scale = Vector2(2.10156, 1.675)
+texture = ExtResource("6_g24jh")
+
+[node name="Shield Cool Down" type="Timer" parent="."]
 unique_name_in_owner = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
@@ -58,3 +75,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.459859, 0, -0.074029)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/ship"]
 transform = Transform3D(1, 0, 0, 0, 0.0469669, 0.998896, 0, -0.998896, 0.0469669, -1.19131, 3.74496, -0.127858)
+
+[connection signal="timeout" from="Shield Cool Down" to="." method="_on_shield_cool_down_timeout"]

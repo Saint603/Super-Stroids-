@@ -5,13 +5,21 @@ extends CharacterBody2D
 
 signal bullet_shot(bullet)
 
-var health = {
+
+@export var health = {
 	"starting" : 100.0,
 	"max" : 100.0,
 	"current": 100.0,
 }
 
-var speed = {
+@export var shield = {
+	"acquired" : false,
+	"current" : 0,
+	"max" : 4,
+	"cooldown" : 2.0,
+}
+
+@export var speed = {
 	"current" : 0,
 	"default" : 800,
 	"max" : 5000,
@@ -21,7 +29,7 @@ var speed = {
 	"dirVec" : Vector2(0,0),
 }
 
-var rotation_speed = {
+@export var rotation_speed = {
 	"current" : 1.5,
 	"default" : 0.5,
 	"max" : 1,
@@ -30,10 +38,17 @@ var rotation_speed = {
 }
 
 @export var inv: = Inv
+
 @onready var weapon = %Weapon
 @onready var camera_view = %SubViewport
+@onready var shield_collision = %"Shield Collision"
+@onready var shield_cool_down = %"Shield Cool Down"
 
 func _ready():
+	shield_cool_down.wait_time = shield.cooldown
+	if shield.acquired == false : 
+		disable_shield()
+		global.player_ui.shield_bar.visible = false
 	health.current = health.starting
 	global.player = self
 	
@@ -86,7 +101,12 @@ func get_input():
 		
 
 func take_damage(damage):
-	health.current -= damage
+	if shield.acquired and shield.current > 0:
+		shield.current -= 1
+		shield_cool_down.stop()
+		shield_cool_down.start(shield.cooldown)
+	else:
+		health.current -= damage
 	global.player_ui.update()
 	if health.current == 0: die()
 	
@@ -94,4 +114,17 @@ func die():
 	var game_over_screen = load("res://GameObjects/Cutscenes/game_over.tscn").instantiate()
 	global.game.ui_layer.add_child(game_over_screen)
 	queue_free()
-	
+
+func disable_shield():
+	%"Shield Collision".disabled = true
+	$"Shield Sprite".visible = false
+
+func enable_shield():
+	%"Shield Collision".disabled = false
+	$"Shield Sprite".visible = true
+
+
+func _on_shield_cool_down_timeout():
+	if shield.acquired == true and shield.current < 4: 
+		shield.current += 1
+		global.player_ui.update()

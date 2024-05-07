@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game = get_tree().get_root().get_node("Game")
+@onready var game = global.game
 @onready var muzzle = %Muzzle
 
 @onready var bullet = {

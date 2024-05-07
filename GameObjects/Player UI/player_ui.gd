@@ -3,6 +3,8 @@ extends Control
 @onready var health_bar = %"Health Bar"
 @onready var score_text = %Score
 @onready var timer_text = %Timer
+@onready var shield_label = %"Shield Label"
+@onready var shield_bar = %"Shield Bar"
 
 func _ready():
 	global.player_ui = self
@@ -16,6 +18,9 @@ func update():
 		health_bar.value = (global.player.health.current / global.player.health.max) * 100
 		score_text.set_text("SCORE: " + str(global.game.score))
 		timer_text.set_text("TIME: " + str(global.game.time))
+		shield_label.set_text(str(global.player.shield.current) + "/" + str(global.player.shield.max))
+		shield_bar.max_value = (global.player.shield.max)
+		shield_bar.value = (global.player.shield.current)
 	else:
 		health_bar.visible = false
 

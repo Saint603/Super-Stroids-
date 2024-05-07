@@ -17,6 +17,7 @@ script = ExtResource("1_nm5nv")
 [node name="Scripts" type="Node" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
 top_level = true
 z_index = -1
 energy = 0.98

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfibmdjt87mv"]
+
+[ext_resource type="Script" path="res://GameObjects/Props/Electric Arc/electric arc.gd" id="1_qxlrf"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ajqop"]
+b = Vector2(0, 1470)
+
+[node name="Line2D" type="Line2D"]
+position = Vector2(360, 336)
+width = 2.0
+default_color = Color(0.360602, 0.890525, 1, 0.466667)
+script = ExtResource("1_qxlrf")
+
+[node name="Collision" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0, -506)
+shape = SubResource("SegmentShape2D_ajqop")
+
+[node name="Start" type="Marker2D" parent="Collision"]
+unique_name_in_owner = true
+position = Vector2(0, -509)
+
+[node name="End" type="Marker2D" parent="Collision"]
+unique_name_in_owner = true
+position = Vector2(0, 962)
