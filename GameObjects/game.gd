@@ -17,6 +17,7 @@ var world_boundries = {
 
 @onready var time = 0
 @onready var score = 0
+@onready var money = 0
 @onready var temp_instances = %"Temp Instances"
 @onready var ui_layer = %"UI Layer"
 @onready var menu_layer = %"Menu Layer"
@@ -24,7 +25,6 @@ var world_boundries = {
 @onready var music_player = %Music
 @onready var game_timer = %"Game Timer"
 @onready var asteroid_instance = (load("res://GameObjects/Asteroids/asteroid.tscn") as PackedScene)
-
 func _ready():
 	global.game = self
 	

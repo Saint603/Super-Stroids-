@@ -1,7 +1,8 @@
 ##MOVEMENT BUGS
-##weird fucking drift needs to go
+##weird drift needs to go
 
 extends CharacterBody2D
+class_name Player
 
 signal bullet_shot(bullet)
 
@@ -60,6 +61,8 @@ func _physics_process(delta):
 
 ##try this next https://www.reddit.com/r/godot/comments/wtl17d/40_how_do_i_add_acceleration_deceleration_to_the/
 func get_input():
+	if Input.is_action_just_pressed("exit"):
+		get_tree().quit()
 	##tilt ship in 3d
 	if Input.is_action_pressed("move_left"):
 		%ship.global_rotation.x = move_toward(%ship.global_rotation.x, -PI/4, 0.1)

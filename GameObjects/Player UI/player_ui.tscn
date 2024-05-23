@@ -12,16 +12,6 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_dsv0w")
 
-[node name="Timer" type="Label" parent="."]
-unique_name_in_owner = true
-texture_filter = 1
-layout_mode = 2
-offset_left = 1764.0
-offset_top = 66.0
-offset_right = 1797.0
-offset_bottom = 89.0
-text = "Test"
-
 [node name="Shield Bar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
 self_modulate = Color(0, 0.0235294, 1, 1)
@@ -77,9 +67,19 @@ offset_right = -123.0
 offset_bottom = 98.0
 grow_horizontal = 0
 
+[node name="Money" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "$$"
+
+[node name="Timer" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+text = "Test"
+
 [node name="Score" type="Label" parent="HBoxContainer"]
 unique_name_in_owner = true
-visible = false
 texture_filter = 1
 layout_mode = 2
 text = "Test"

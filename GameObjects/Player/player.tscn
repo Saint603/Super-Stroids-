@@ -64,6 +64,7 @@ unique_name_in_owner = true
 
 [node name="SubViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true
+own_world_3d = true
 transparent_bg = true
 
 [node name="Camera3D" type="Camera3D" parent="SubViewport"]
@@ -73,7 +74,8 @@ transform = Transform3D(0.0016684, 0.998242, -0.0592481, -0.028099, 0.0592716, 0
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.459859, 0, -0.074029)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="SubViewport/ship"]
-transform = Transform3D(1, 0, 0, 0, 0.0469669, 0.998896, 0, -0.998896, 0.0469669, -1.19131, 3.74496, -0.127858)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport/ship"]
+transform = Transform3D(1, 0, 0, 0, 0.0083426, 0.999965, 0, -0.999965, 0.0083426, -0.459859, 2.73109, 0.074029)
+light_color = Color(0.900649, 0.943138, 0.959068, 1)
 
 [connection signal="timeout" from="Shield Cool Down" to="." method="_on_shield_cool_down_timeout"]

@@ -18,11 +18,13 @@ func add_sound(locationVector, sound, buffer: float = 0.0, volume: float = 0, ra
 	sound_player.set_stream(load(sound))
 	sound_player.volume_db = volume
 	sound_player.global_position = locationVector
+	sound_player.finished.connect(_on_sound_finished.bind(sound_player))
 	if randomize_pitch: sound_player.pitch_scale = randf_range(0.9,1.1)
 	await get_tree().create_timer(buffer).timeout
 	sound_player.play()
 
-	
+func _on_sound_finished(sound_player):
+	sound_player.queue_free()
 
 func check_off_screen(object, destroy: bool = false):
 	var buffer = 300

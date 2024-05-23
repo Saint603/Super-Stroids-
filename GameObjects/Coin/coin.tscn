@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://d31xjxfxefihy"]
+
+[ext_resource type="Script" path="res://GameObjects/Coin/coin.gd" id="1_dmqn0"]
+[ext_resource type="PackedScene" uid="uid://2jalats7uu6i" path="res://GameObjects/Coin/coin.glb" id="1_g7fvk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rmvf8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_s8vdd"]
+sky_material = SubResource("ProceduralSkyMaterial_rmvf8")
+
+[sub_resource type="Environment" id="Environment_6hl1m"]
+background_mode = 2
+sky = SubResource("Sky_s8vdd")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v2mrg"]
+radius = 17.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3jhsh"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Coin" type="Area2D"]
+position = Vector2(427, 455)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dmqn0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6hl1m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_v2mrg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("ViewportTexture_3jhsh")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+transparent_bg = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.122614, 0.992454, 0, -0.992454, 0.122614, 0, 0.999847, 0.663847)
+light_color = Color(0.844066, 0.925574, 0.686037, 1)
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 0.00770205, 0.666874, -0.00127929)
+
+[node name="coin" parent="SubViewport" instance=ExtResource("1_g7fvk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

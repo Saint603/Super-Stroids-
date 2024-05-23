@@ -8,6 +8,8 @@ extends RigidBody2D
 @export var damage: float 
 @export var asteroid_scale: float = 1
 
+var drop = preload("res://GameObjects/Coin/coin.tscn")
+
 var asteroid_sounds = ["res://Audio/Sounds/Asteroid Sounds/Asteroid_Sound_1.wav", 
 					"res://Audio/Sounds/Asteroid Sounds/Asteroid_Sound_2.wav", 
 					"res://Audio/Sounds/Asteroid Sounds/Asteroid_Sound_3.wav",
@@ -25,6 +27,10 @@ func _process(_delta):
 func take_damage():
 	health -= 1
 	if health == 0:
+		if splits == 0 and randi_range(0,2) == 2:
+			var drop_instance = drop.instantiate()
+			drop_instance.global_position = self.global_position
+			get_parent().call_deferred("add_child", drop_instance)
 		for i in splits:
 			var temp_instance = instance.instantiate()
 			temp_position = self.global_position + Vector2(randf_range(-50,50),(randf_range(-50,50))) 

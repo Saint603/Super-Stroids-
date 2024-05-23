@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://efd3ea6rv71t"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ikglv"]
+
+[node name="3D Prop Enviro" type="WorldEnvironment"]
+camera_attributes = SubResource("CameraAttributesPractical_ikglv")
