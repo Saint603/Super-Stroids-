@@ -1,5 +1,5 @@
 extends Node2D
-	
+#test comment
 var current_level = {
 	"instance" : null,
 	"node" : preload("res://GameObjects/Levels/level_1_1.tscn"),
